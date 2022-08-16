@@ -103,24 +103,6 @@
         return "";
     }
 
-    function setInfo() {
-        console.log(document.cookie);
-        var name = getCookie("name");
-        var stuId = getCookie("stuId");
-        var school = getCookie("school");
-        var major = getCookie("school");
-        var _class = getCookie("class");
-
-        console.log(name);
-        console.log(stuId);
-
-        document.getElementById("name-input").innerText = name;
-        document.getElementById("stuId-input").innerText = stuId;
-        document.getElementById("school-input").innerText = school;
-        document.getElementById("major-input").innerText = major;
-        document.getElementById("_class-input").innerText = _class;
-    }
-
 
     function setCookie(c_name, c_stuID, c_school, c_major, c_class, exdays) {
         let exdate = new Date();//获取时间
@@ -224,10 +206,7 @@
                         setCookie(this.ruleForm.name, this.ruleForm.stuId, this.ruleForm.school,
                             this.ruleForm.major, this.ruleForm.class, 30);
                         // $.cookie('name', this.ruleForm.name, 30);
-                        // $.cookie('stuId', this.ruleForm.name, 30);
-                        // $.cookie('school', this.ruleForm.name, 30);
-                        // $.cookie('major', this.ruleForm.name, 30);
-                        // $.cookie('class', this.ruleForm.name, 30);
+
                         alert('雷普成功');
                         document.getElementById("btns_div").style.display = "block";
                     } else {
@@ -238,8 +217,34 @@
             },
             resetForm(formName) {
                 this.$refs[formName].resetFields();
+            },
+            setCookieInfo() {
+                console.log("setting info...");
+                console.log(document.cookie);
+                var name = getCookie("name");
+                var stuId = getCookie("stuId");
+                var school = getCookie("school");
+                var major = getCookie("school");
+                var _class = getCookie("class");
+
+                console.log("name:" + name);
+
+                this.ruleForm.name = name;
+                this.ruleForm.stuId = stuId;
+                this.ruleForm.school = school;
+                this.ruleForm.major = major;
+                this.ruleForm.class = _class;
+
             }
 
+        },
+
+        mounted() {
+            this.setCookieInfo()
+        },
+
+        watch: {
+            '$route': 'setCookieInfo'
         }
     })
 
