@@ -13187,6 +13187,7 @@ div.infoplus_view_wrap_outer:not(:first-child).unexpanded > .infoplus_view_label
 
     <script>
         function getCookie(cname) {
+            console.log("getting cookies......");
             var name = cname + "=";
             var ca = document.cookie.split(';');
             for (var i = 0; i < ca.length; i++) {
@@ -13197,6 +13198,7 @@ div.infoplus_view_wrap_outer:not(:first-child).unexpanded > .infoplus_view_label
         }
 
         function setInfo() {
+            console.log("reading info......");
             console.log(document.cookie);
             var name = getCookie("name");
             var stuId = getCookie("stuId");
