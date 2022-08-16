@@ -335,11 +335,6 @@
             line-height: 50px;
         }
 
-
-
-
-        @charset "utf-8";
-
         body {
             background-color: #fff;
             padding: 0;
@@ -455,6 +450,31 @@
             margin-top: 26px;
         }
     </style>
+    <!-- 读取cookie -->
+    <script>
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+
+        function setInfo() {
+            var name = getCookie("name");
+            var stuId = getCookie("stuId");
+            var school = getCookie("school");
+            console.log(name);
+            console.log(stuId);
+            console.log(school);
+            document.getElementById("div_xm").innerText = name + " " + stuId;
+            document.getElementById("div_bm").innerText = school;
+        }
+
+    </script>
+    <!-- 设置时间 -->
     <script>
         jQuery(function () {
             var state = '';
@@ -531,10 +551,6 @@
     </style>
 </head>
 
-
-
-
-
 <body class="blue-bg">
     <div class="content-box">
         <div class="body-content" style="width: 260px">
@@ -565,27 +581,8 @@
 
         </div>
     </div>
-    <script>
-        function getCookie(cname) {
-            var name = cname + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i].trim();
-                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-            }
-            return "";
-        }
 
-        function setInfo() {
-            var name = getCookie("name");
-            var stuId = getCookie("stuId");
-            var school = getCookie("school");
 
-            document.getElementById("div_xm").innerText = name + " " + stuId;
-            document.getElementById("div_bm").innerText = school;
-        }
-
-    </script>
 
     <script type="text/javascript">
 
