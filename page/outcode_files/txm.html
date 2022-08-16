@@ -1,0 +1,680 @@
+<!-- saved from url=(0223)file:///F:/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E4%B8%9C%E8%A5%BF/%E6%9F%A5%E7%9C%8B%E8%BF%9B%E6%A0%A1%E4%BA%8C%E7%BB%B4%E7%A0%81%20-%20%E6%9F%A5%E7%9C%8B%E9%94%80%E5%81%87%E4%BA%8C%E7%BB%B4%E7%A0%81_files/txm.html -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>销假进校二维码</title>
+    <script src="./jquery-1.7.2.min.js.下载"></script>
+    <!--<script type="text/javascript" src="./jkm/js/jquery.qrcode.min.js?v=1"></script>
+-->
+    <script type="text/javascript" src="./qrcode.min.js.下载"></script>
+    <style>
+        @charset "utf-8";
+
+        /* CSS Document */
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .phone_login_btn_2 {
+            width: 100%;
+            height: 126px;
+            background: #6CA7FF;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 30px;
+            margin: 100px auto;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            line-height: 60px;
+        }
+
+        body:before {
+            content: ' ';
+            position: fixed;
+
+            z-index: -1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: url(../img/bg.png);
+            background-size: 100% auto;
+        }
+
+        .phone_logo_index {
+            width: 100%;
+            text-align: center;
+            padding: 10px 0 10px 0;
+        }
+
+        .phone_logo_login {
+            width: 100%;
+            text-align: center;
+            padding: 10px 0 10px 0;
+            position: absolute;
+            top: 200px;
+        }
+
+        .phone_logo_find {
+            width: 100%;
+            text-align: center;
+            padding: 140px 0 60px 0;
+        }
+
+        .phone_login_box {
+            width: 76%;
+            margin: 0 auto;
+            position: absolute;
+            left: 90px;
+            top: 560px;
+        }
+
+        .phone_login_user {
+            padding-bottom: 60px;
+        }
+
+        .phone_login_user_text {
+            width: 450px;
+            border: 0;
+            border-bottom: 1px solid #8bb3e9;
+            height: 75px;
+            line-height: 75px;
+            background: none;
+            font-size: 32px;
+        }
+
+        .phone_login_user_img {
+            height: 75px;
+            line-height: 75px;
+            vertical-align: middle;
+            margin-right: 28px;
+        }
+
+        .phone_login_yzm_btn {
+            width: 25%;
+            min-height: 40px;
+            background: #ffffff;
+            color: #989898;
+            font-size: 28px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            line-height: 10px;
+            position: absolute;
+            left: 70%;
+            top: 3%;
+            border: none;
+        }
+
+        .phone_login_btn {
+            width: 100%;
+            min-height: 75px;
+            background: #6CA7FF;
+            /*margin-left:5%;*/
+            border-radius: 50px;
+            color: #fff;
+            font-size: 36px;
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            line-height: 75px;
+        }
+
+        .phone_login_btn_1 {
+            width: 100%;
+            height: 120px;
+            background: #6CA7FF;
+            /*margin-left:5%;*/
+            border-radius: 30px;
+            color: #fff;
+            font-size: 36px;
+            margin-top: 40px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            line-height: 120px;
+        }
+
+        .phone_login_btn_2 {
+            width: 100%;
+            height: 126px;
+            background: #6CA7FF;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 30px;
+            margin: 100px auto;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            line-height: 60px;
+        }
+
+        .phone_login_btn_3 {
+            width: 100%;
+            height: 120px;
+            background: #6CA7FF;
+            /*margin-left:5%;*/
+            border-radius: 50px;
+            color: #fff;
+            font-size: 32px;
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            line-height: 120px;
+        }
+
+        .phone_login_btn_4 {
+            width: 100%;
+            height: 120px;
+            background: #6886e6;
+            /*margin-left:5%;*/
+            border-radius: 50px;
+            color: #fff;
+            font-size: 36px;
+            margin-top: 40px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            line-height: 120px;
+        }
+
+        .phone_login_btn_5 {
+            width: 100%;
+            height: 120px;
+            background: #6CA7FF;
+            /*margin-left:5%;*/
+            border-radius: 50px;
+            color: #fff;
+            font-size: 32px;
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            line-height: 60px;
+        }
+
+        .phone_forger {
+            float: left;
+            font-size: 28px;
+            text-decoration: none;
+            padding-top: 15px;
+            color: #004287;
+        }
+
+        .phone_change {
+            float: right;
+            font-size: 28px;
+            text-decoration: none;
+            padding-top: 15px;
+            color: #004287;
+        }
+
+        .phone_login_more {
+            padding-top: 100px;
+        }
+
+        .phone_more_title {
+            width: 100%;
+            height: 70px;
+            line-height: 70px;
+            background: url(../img/xian.png) no-repeat center center;
+            text-align: center;
+            font-size: 34px;
+            color: #004287;
+        }
+
+        .phone_login_nav {
+            float: left;
+            width: 30%;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .phone_login_nav dd {
+            font-size: 28px;
+            color: #004287;
+            line-height: 60px;
+        }
+
+        .phone_login_find_title {
+            width: 100%;
+            text-align: center;
+            color: #004287;
+            font-size: 36px;
+            font-weight: normal;
+            margin-bottom: 100px;
+        }
+
+        .phone_login_find_title1 {
+            width: 100%;
+            text-align: center;
+            color: #004287;
+            font-size: 36px;
+            font-weight: normal;
+            margin-bottom: 40px;
+        }
+
+        .phone_login_find_title p {
+            font-size: 30px;
+            color: #999;
+            line-height: 45px;
+        }
+
+        .phone_find_nav {
+            padding-left: 50px;
+            height: 90px;
+        }
+
+        .phone_find_img {
+            float: left;
+            padding-right: 20px;
+        }
+
+        .phone_find_p {
+            float: left;
+            /*line-height:60px;*/
+            font-size: 32px;
+            color: #004287;
+        }
+
+        .phone_login_find_box {
+            padding-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .phone_login_find_box_text {
+            width: 380px;
+            border: 0;
+            border-bottom: 1px solid #8bb3e9;
+            height: 75px;
+            line-height: 75px;
+            background: none;
+            font-size: 32px;
+            float: left;
+        }
+
+
+        .phone_safe_1 a {
+            float: right;
+            height: 30px;
+            margin-top: -60px;
+            margin-right: 50px;
+            color: #f4c766;
+            font-size: 28px;
+        }
+
+        .phone_safe_2 a {
+            float: right;
+            height: 30px;
+            margin-top: -60px;
+            margin-right: 50px;
+            color: #c2151f;
+            font-size: 28px;
+        }
+
+
+
+
+        .phone_login_nav_1 dd {
+            font-size: 26px;
+            color: #004287;
+            line-height: 60px;
+        }
+
+        .phone_pt_text {
+            font-size: 24px;
+            color: #666;
+            line-height: 50px;
+        }
+
+
+
+
+        @charset "utf-8";
+
+        body {
+            background-color: #fff;
+            padding: 0;
+            margin: 0;
+            font-family: "Microsoft YaHei";
+        }
+
+        input:-moz-placeholder,
+        textarea:-moz-placeholder {
+            color: #fff;
+        }
+
+        input:-ms-input-placeholder,
+        textarea:-ms-input-placeholder {
+            color: #fff;
+        }
+
+        input::-webkit-input-placeholder,
+        textarea::-webkit-input-placeholder {
+            color: #fff;
+        }
+
+        ol,
+        ul,
+        li {
+            padding-left: 0em;
+            list-style: none
+        }
+
+        h2,
+        h3,
+        h4,
+        ul,
+        li,
+        p {
+            padding: 0;
+            margin: 0;
+        }
+
+        input {
+            outline: none;
+        }
+
+        html {
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        .blue-bg {
+            background: url(/nxg_data/images/banner.png) no-repeat left top;
+            background-size: 100% auto;
+        }
+
+        .top-header {
+            line-height: 44px;
+            height: 44px;
+            font-size: 1.3rem;
+            color: #fff;
+            text-align: center;
+            width: 100%;
+        }
+
+        .banner {
+            width: 100%;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .banner img {
+            width: 60%;
+            height: auto;
+
+        }
+
+        .content-box {
+            width: 90%;
+            height: 800px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(141, 141, 141, 0.4);
+            background: #fff;
+            margin: 0 auto;
+            position: relative;
+            top: -10px;
+        }
+
+        .top-title {
+            width: 90%;
+            margin: 0 auto;
+            line-height: 60px;
+        }
+
+        .top-title h3 {
+            font-size: 1.3rem;
+            color: #333;
+            width: 60%;
+            font-weight: normal;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .link-btn {
+            width: 100%;
+            text-align: center;
+            color: #028aff;
+            text-decoration: none;
+            font-size: 1rem;
+            margin-top: 26px;
+        }
+    </style>
+    <script>
+        jQuery(function () {
+            var state = '';
+            var color = '';
+            var content = "";
+            var informationUrl = '';
+            if (state == 'pass') {
+                content = informationUrl;
+            } else if (state == 'invalid') {
+                content = '当前码无效，请查看申请历史';
+            }
+            console.info(content);
+            jQuery('#output').qrcode({
+                render: "table",
+                width: 240,
+                height: 240,
+                text: content,
+                render: "canvas", //也可以替换为table
+                foreground: "#" + color,
+                background: "#FFF"
+
+            });
+        });
+
+
+        //获取系统时间
+        function showTime() {
+            nowtime = new Date();
+            year = nowtime.getFullYear();//年
+            month = nowtime.getMonth() + 1;//月
+            day = nowtime.getDate();//日
+            hour = nowtime.getHours();//时
+            minutes = nowtime.getMinutes(); //分
+            seconds = nowtime.getSeconds(); //秒
+            //文字增加空格
+            //document.getElementById("div_timer").style = "white-space:pre;";
+            //显示时间
+            document.getElementById("div_timer").innerText = p(month) + "-" + p(day) + "\t\t\t" + p(hour) + ":" + p(minutes) + ":" + p(seconds);
+            // document.getElementById("div_timer_time").innerText = p(hour) + ":" + p(minutes) + ":" + p(seconds);
+        }
+
+        function showDate() {
+            today = new Date();
+            year = today.getFullYear();
+            month = today.getMonth() + 1;
+            day = today.getDate();
+            document.getElementById("div_yxsj").innerText = "有效时间：" + p(year) + "-" + p(month) + "-" + p(day) + " 00:00至\n" +
+                p(year) + "-" + p(month) + "-" + p(day) + " 23:59";
+        }
+
+        setInterval("showTime()", 1000);
+        setInterval("showDate()", 1000);
+
+
+        //月日时分秒小于10补0
+        function p(s) {
+            return s < 10 ? '0' + s : s;
+        }
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0
+        }
+
+        .body-content {
+            text-align: center;
+            margin: auto;
+        }
+
+        div {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+
+
+
+
+<body class="blue-bg">
+    <div class="content-box">
+        <div class="body-content" style="width: 260px">
+            <div id="div_bt" style="font-size:20px;">销假进校二维码</div>
+            <div id="div_xm" style="font-weight: bold; font-size: 1rem;padding-top: 30px;">李田所 202083290114</div>
+            <div id="div_bm" style="font-weight: bold; font-size: 1rem;">计算机学院</div>
+            <div id="div_timer" style="font-weight: bold; font-size: 1.5rem;">06-01 15:59:38</div>
+            <div id="div_ewm_p" style="border:solid 5px  #4EB16E;padding: 4px;border-color: #4EB16E">
+                <div id="div_ewm" title="http://e-office.nuist.edu.cn/infoplus/form/e1768306/view/G6T2JTW7GM">
+                    <canvas width="240" height="240" style="display: none;"></canvas><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAYAAAA+VemSAAAAAXNSR0IArs4c6QAAGh5JREFUeF7t3eGV3NaOBGA7QW0m3lg2FDvB2dO237HIJsWPAEi2/Ep/hYsLFKoAkNMz/eu333/7+uUD/v3+7f8oiv/543/Jbm205X/Ll8ahQUi8GpveqTl08q/mpTmoXSeH9R3qS3LX+Lt2v0bASwiV/Aq8FDsCVjTf7VR0coP6kprKfRM2EfAKxQh4bhOaxnKL8Co6EYv6ioA30NRiV8HTKadxCCFeNhKvxqZ3ag5KWBWOPLZoDmrXyeFfuUJr8RVgLX713skCquBedio6yUtEvnen4tupl5xVPMTXno1guXdWMZYmNM05xWTr3rcVugNSJ5DqvdNgaqGVsJJX584I2FinGEfAgOek6CZ9ZQJD8XZMtKHVb9jeetRfBKxIgd2k6CZ9RcBQvAh4872GbFp1dP86mRUaENROrRNHCtu5Mys0FBVfJm55mqyzRbpvVRawEuwOANaxdADW6a35V2PpxCEN4gxxNJYzPr+37WDZaVZam8lnYM21oxt6iXVHIErECHhZbsVNBRcBH+OrGN2hmwh4xexqp3650bNruw4hImD7aK3WJhO4KAglYibw8YTQaasrqdZG7tWppHd2/MlZFb7aCUZnhkEmcLHhdJ5bMoGPaRwBv3+k9V/xEmtdeumix3T5x6JDHO3CckcnL43jDC4VW41D7Sox/OeM3CF1efnrPPJoDhLvy9dPN4Ej4GMKaPGPPfUsNA6160Qjd0TAGwgLcHs7vxSsM6l0De48K2q3nmxMirng27HRONTu6lgi4Aj4DYEIeAmJ4nFHY5YXotPNW5uQNrWs0PASa7qI0uk7BNbiK5mqdhqH2lXj2NvwImBAVIujdusr9ZyIZi8dnRoAx58mk8TROzt2grHYnIlB66WNTv1JjMoHjU0f5X66t9ACgBKnU0AtmBQ/AjaUtF7Ckb0JbJG8WykfNLYIeIWAAqwFvNrfNFk1L7WTJik2et8ZwalIFGOJUfmgsUXAEbDwrmwj4hSbMwGo4FQk6k9ijIA3/jRslQB6rlNALZgUPyu0oaT1ioBXfxdagbMybFtNC2J9i/rv2HXWnvVZxVzj1doo+dWf5NXJYTpexb3Krypue+fKL7HuCKQK5lZsSpKOXQR8zIrp7SgCfv/NK/o58HGpzlmocM55/cda/XfsIuDj6kTAxxidscgELr7s0s6vhJVVs7NZKCk0L/UneWnT1Pyrsb3OVbe+Tg6deCPgCHiBQARs30LxUz0DdzpE56xOr7WddsNPtvvk2F41lfjERn09ZdfJocP9ztmP/m4kAVRsniKE3psc7JfXq03+jjp0RNg5GwEPrtVVgkXAEXBVxBFwBLxAIE1oSQjFoyrA7rkIOAKOgP9GoLMJdYVYPf/r19fXV/Xw1eeeeEu6ldN0YeXHF5q7+Nqrk94hddY4Ju98xaX3Sg4/o00EDFWLgI9BUiFFwMdYnrGIgAGtCPgYpAj4GKMrLCJgQDUCPgYpAj7G6AqLCBhQjYCPQYqAjzG6woIErM8tTxVxDcz0q/9OXnp2nYNiPk0KjVfi6/i6o4brHDp36lnFROsaAQNSCrpOarhy8+OLcq5r08lVGukdb/m37hCBic0evnpW8dU6RsCAlIIeAS/BnMZNpn5HYCrCaoN4nVNMgJZ/mkTAgJSCHgFHwN8jMMmHPZpGwBHwAoFOs8oKvUTgFgF/g7+JpYHoiqOritoJcTqxdZ7b9OzVOXRqWK2DrprQQz/KZJpLneToT+p0iq9FnLyjQ7jOBOqcjYA7NL73bAT8bfbXx64mv07RCPhYSIrRsafnLCLgCPiQfdNbRGfD6cQizfUQjA8z+OkErPhpYtNr9dqfklXzUrtO/npH1e5TJl8Ho04jqZ7Vc2pXrd/r3NYd9Aysl95RHCFiBPxeMcFN69yxu4MjnQEhG4Pyq5Or5hABd9i4OjtdsMHQxj9AUI2tg1FnylXP6jm1q+KWCbzx3N0BU19sTd9R9ZcJbC9OM4GLDNMOJkTUFacY6u6xznSZjkWIePWd001OOaLrp9RL71S7Duabz8DVP6kjye+N/U4Seq/cMQ26NBclddXXy782MMWyGstTcVTzqp7bw3yykeyu0BHwEmYtohZHGokSXXxFwNsNTOqlte80/umz9FlonRoCkpJwz05Blns6YE7mGgG/f+teB1/lyLr+1XOZwKK2v20UZHEZAc8KZ425Niatqa7yVX/VcxGwqC0CZpSeEk4EfFyiztCgD3Ich/CXRSeQyTumu3JnddNHjcnVrXrnU48oWnudhlqvqr8Ov6Y1EgEre1Z2WsSqmJRcGodOYI23CFvrwyOKSQS8+n1gLdZ0d6kWokPqTq56VsSkZO3k2jmrua7t9M7pRjLJTc1B6nzmWVn1UP5upEmQ9ggid3QAVmLqHUrErNDHyGtTU6JX/WntI+CNSkTAS1CmyaQN51hu2xYa73QcwhvNSXN4TMDVD3J0QFeA1U6L8YSdEKA6HV75iP8zq5tirveuMddc1b/600n9BEc6Wip/kKNzaYcknYI9URwhYicn8R8Bz28IV3NJOREBX1wJEZgWqzNF9I5OcxUoO3F0hkYHO8lr2kZxioCnkV/5i4CXgCgxBbczm0UEDETvFOeOlwCQwriJEFFx65BQ78gEHqdAyaHWiyZwR1xXE6KEzslDCuZJtz80V9z0TvUnDWdr8l3tfy9PjVfW76dy6DTmCBgUEAG/g7TG5CnyR8BfX19HHM4Ett/aOcLxzP+rINSn+lNBRMDHyHcav9YhE/i4Do981acKDsL/00T9KXEi4GPkI+BjjG6x6BSiGqAKTv2rvwh4iahun/KMrbXaa7hb598m8DRZq4Q4MzXWiemdZwAV22nsqnkp6TrxCsZX+5eanLHReLUZ6t2C5Z6vCFhRBjslALjaNNFCR8A1hLV+EfAGvpOkU6LXyrx/SglQvVfzmsRyL1aJpYOH+K/iuHdO442AI+AS95TUEXAJXn5ZGQFHwCWGRcAl2PjQTzmBv63+IoeShFFBsW75k04nNmfWQC1iJ//q2U6uVXxf5+TeDm86G4PEdqb+a9s7+KDYbcUy+uVmSkwFRYojNmcKqLFprpN2nVwj4HcERDh38EHieEUfAa9qOC2ISbF2BKdxaP5ipyTcii0T+P2L1xSnTOAVUnd0XBXY2k6EdMa3+hO7CPgM8ktbxS4TOBN4gYAIM8/A138OflTAurrpiO8EJz1t2v9T/j755YnUWnGTmu4972nDUQ5XP8+tOWgc6o8mcOdSfZYRQmhSShxdjZ/yFwEvEVAudeoaAcPz47Qg5Lmw0yCm41V/EXAEfDS0MoGPELrpz7RCGPypIPG1Z1NtLlsrbseXNtys0O/P4/TNDFocXXu0YELOTmzTjwsdf5nAmcBHfKcJrF1u2u4o+DP/r6I+47Nqq89o1UeDalx75zpNWJpQpzZVLF9xKV+lDp04tMnrHfRzYC1qx26SiB2STMaxtWqq/6dy0BpKHpO+OlhGwH+8797a0dROCKE2T5H/iUcDxUTtJkU36SsC3q5gJrAyu2inq5CsbsUQTh2bFN2krwg4Aj5F5CnjCHiJZGc7qmL5X7VCK3E7q3HnbHVSTRdf12UhrMYmvrR+d9jpBO7YaR5Xc66Tg9aV3kLfAcjVYKq4OrnqHVKcCLj+jqVTQ8VdhkYEvPGiTIojArni+SkCPq7ONKmrguus0FtZ6gDq2Cm/6IMcnSSmz0o31OSPKfiXRadJyFklpvjSnO6wi4Dff89XMVEOX/4WWomi3Ur9TQpdhaNCrMZWzf3MuQ7B5J6r/e/FIPeKjeT4I5vpOyLgFdodgCPgY3p38D32vm8h94pNJ4a9RzkdEFt3R8AR8AKBq0l8tf9M4G/1vb06gfaeMzv+qmtqh2DVeDsduDsR1uc7+UssV/uPgCPgNw6owCLgYwlHwPYjs2Mk/7Ior9B6wTT51/6UEFVxaZ7TW4TipvF9Ck6dvDo5dO69e0vRmkbAZ5AC28k36ZOEO/Py5OpG18krAn4nYSYwCFNNIuBjpCLgY4zOWETAZ9A6sI2Aj8GMgI8xOmMRAZ9BKwJuoxUBtyFcOLhcwLPhvnvTqXcHca7O9ern0734FeP1eT2ndlvxdeoqL6euruney0+9NwIGpPTlCbhqmUTA1sCrIH8SvppDBAxIRcD24Z5MYCDThklni4iAAfMIOAIGmpRNIuAVdNOCm/ZXrfQnrXgSiz7bql2egd8RuPz3gTvdpUqSrUKLrzMvcaoifJ1bx/IUgTuYVPOfzrXTXCX/af528t/CPAIGJnaKKM2kU9RObEJggOeUyXSuEfDvv32dqsDfxlqIqwmm/jtk1TsUx0zgJVJam2nOyb2d2mtzkTj2uJUJDKrrFDETeImAilCfd1UkUge9Eyjzp4nGFgEDoh2QImAAGE0i4NobfZ7AHYC1g93RmYRPmqsKWJuE+lvn0MFNcxXcpm0Uj2l8xZ/ipnaKnfq7/OfAGojaKQBip3c+RbAIeO5ZeXKF7jRS4eXLRrkZAa8Q1eJUCbFXHCmsxtaxkzimbZ5qkJnAUEntJGoHV7KJ3vkUwTKBM4G/R2Cr4WQCZwJzw7vK8KkG+a+YwF9fX4c/B+6sZFqc6ko67f8Jf5+M75nnsXUNO1hONwvBWGzOxCUN4oy/LTx/jYCXEHZIVyWAnlM7JYUSTB81IuDayq/1ioAH12XdGKQhqDDVTgkRAS9/JvsUvlqvCDgCXiAQAUfAh4SQCbTXgYRg0/6f8KedX+20owu+eQZ+/+TUNL7qb3MCf1v9MkP1eUeD+CQ7FWuH6JKv+hdfV9gITtpc1K7ziPLpeMq7As3h8h8jXUGoKZ9CzNddCqb6W8ev/qfyPutH8lJhql0E/P4VLFuYRMDAZhWYEF2JCWHdZiJ5qTDVTnH6N2yMnRwiYJBBBHz8HKjCVLsIOBP4UJoyWbJCb3+wXh4DdLJ06qB3HJLhQYNODvQL/dMAT2KlHV2n6FZsHYA7Z+VlxySWZ5pV9V7lUtX/mRwklg6/xH8nz9fZCBgQ7IiwczYChuJsmGizFoFFwBtfGF4ry/apDsAaR0eEnbMRsFZoaRcBr3CTTrW3uujZWqnu+btDHRF2zkbANVZEwBHwAoGOCDtnI+AI+AiBn+7HSNWJPtmVz2wbsuJrbEfF/NH/TzaS1z2TddDYqneeqVcVY61hJ9etOyLgi7eNCPj4+bRDahWc1EF9bdlFwIhetQt3ANaCVYmosSFEm2Yam94xWQeNrXpnJvAf9qkQLX7HrlpEFYn6144udhrbNG6dexWndcyCxxWC03urGCuWnWaVFRqqo8RUQoidFh/C3zVR4ugdilMEvERA66B29Cd1dIW8uvgahyavJLxaYJ04NFetzZadxCeNai+GDr4Sm96rWD5lt5VHBAzM7hAM3PMbXRXJdLwiEo1Nm7Dg9rKR2CLgDQQ6JOmA/sRK1slViKh4qEim45X4NLYI+P19kk70TOAVAkLMvRcqIky16cTRKf5kfBFwXZidGpZXaO2kGlzHbnIqK6n1WbFKbJ2iilsnL8m1mme3QT6Vv+DZaczi/2UTAStSYKdkksJGwAD4iS8BM2+zVlLnbgOLgAdrFgEvwbyDwIr5YJnZ1R35R8BcjmNDJZMUNhP4GO+XhWJu3matpM6ZwBuY6/OYikTLqmSSwmpseqfmoHbrexVzfXdSjaMrCL1X7KTO3XjLf5FDCSYvQASMPZtOHBqbkrNjt45FhakkUeHovdV4tdadvDRXjUXsqrjtbRFy58smAl4hpYWYtqsKokP0JxqOErOTVwRcJPUTxckEPv6Tr2e2F21M1YbzBEe6a6rEXMUtE3j4N6W0ENN2VUF0JlUmsEjTbJQP+thmt2aFfsNJCzFtFwEvEeg0pv+qFVq+4LsDyDTR5e2ndjldvztkkin3VByKk9S/U2edNh07qYPkeWblrd65t/JvYVz+OXCHdJqY2E3H0SF1lQCdHJTU03es/UXA75UQ/nbfT0TAoIBM4GNyRsDHGF0xvSPgCHiBgDarTOBj4mQCb7xhzjPwMXF0le88LkTAx3X4GAHr81OHEMdwuMV0vNP+1pl0/P9smOuEv6MJSR068SpjO0KnFbpDsDsAkEIomPos1/E3GW8E/I5AlXMdISkftDFpDhHwCtEIuEZFbfJKTCX6ZAOLgDfQ7BSsRqXtLzxTXxGwIrW0i4BruL1OdRpHJnAmcJ15352MgOswtgT87fffvr6/+o4JpAGLndjsdbnJ9WuvfBKf2HRzuOMOofAdcUzeoRvk5J0vHPXey7/cTBtC1e4p4ISsuh7dkcMddwgmd8QxeYcKafLOCPjb+6/Y3bHi6YsX+Vm2NjTdIp4i2Dq+O+KYvCMCRjEpYZ8gv0yWrNCG0qS49ibV5B0RcAT8xuwnmtAkqc+seJnA176tf3sLrYXWdbGz4snZTrw2M/w1v67peu/aTrcU9a/+1E7uVV9qJxzR7Wh62t6hkQgYWKdNIgI+BlOFqXYR8NfX4sdIStY7uosUpxPvMd3+stA7IuBjRFWYaiccyQTeeI6NgOtvuo9pvm3RIbUS/epmpTmoneYlfM0KjX9gbrI4SriqaDKBZ7/9QGuvdhEwrNCTIHWE9DorXVJXWfF1RsDV3DrxdhrY9L3V/LUOMkWVI3t1rebQOaf5b9WLXmJFwPbdr9UiTgupQwittcYsmGi8EfA7DyNgYFhnyoH7zZdkHSGpIFSEnXVW8td4I+AIeMEBJU4EfO0LO61DBBwBR8DfIZAJ/C4I2RimbbSBbT4Dr3+d8Kngqvd2pmPn7OQ0UCFVMTrzYkfvWMesJFT/atfBrhqz8qYTm+ZP306ozvS5reNvfVbBnBTcXvzVWO4odJWsmuu0f+VIB7tqzFrnTmyafwS8Qqpa1JcbLaw0IS2g2nXykuY37V/z6oikGrPWuROb5h8BR8DKlYVdVuglbFe/qd8rUgQcAUfAJxH4qAm8/nZCDU5zvnqNqK5B+mx3xwsgxbKTq9aheofypmM3/Y5FMKnioTXt8pA+yNFJQkDqJNuJTZ7tImCrTkeYnfWzU3/hZse/IbdtpXhGwCv8FLjp4oi/DpmErJ1mpbh17DKB3z9QEwFHwAsEqk2iI8xM4PfWpHhGwBFwBPyD9afa0GSj+pHNqIA1mOlkZe3T7q2xKXCKifiTPDvrbfdFicQ3ja/cuYdJ5+waK6nf64za6XsXfVygCaxk1SKqPylEBKxo1te0ah2UrFpDJbXEqw1Rhal2ionmGgFfvEJLYScJd0bOEtvedFnfo8178s5M4F9+iYAj4MNnYGkwEXD9jz4IvnvNqvxJLC1YZ2U4M02+t+2sZLq6aGxaHPX3qXYdzKfPVjG6o1aqG91UImCotoL+RLOC8G8xmRahiqlTmzUwemcHUI03AobVWAuhoEfASwRUENPi17pGwEWktLBF95t/ubJzZwR8XIlpEWq9OrWJgI/rummhxSm6j4CrwDXORcAGnjYcXqHXv41kYdxjJUJX4ihwT6zBmsMdL9g0lg6eMvkm/b/uE0GIzRnmC3/3/Gkd3n6MdCbAq20FAE20QwiJo4OF5hAB11EWcYrNmQg6vFFORMBQkU4hwH1r5Z9uTEqczr2ZwMes0DpEwMdY8h9eB1ebJlqsTOAqwlmh68g1TsrkU/J3JobE0UgzE3jjS/E69dL3GOs7fsoV+uq/C63EvlqIneLo2Y7dGqcOHpNxnHnJIrXWZqgC1lyrsU3XQbcoxan8SSwB5IxNByi5p1NoPduxi4CXCETA9q0RETCovyNMbUwRcAT8PQKZwCtFqAirz0+vc3qHFEeFP20H/exPE52Q8sZZ18pObSSvTv20DpqrcOTlKxMYKvtEYZUQ03YARwSML91UhFrDrdq8CbjaWbXwZyaVdlxZP9WXgtnBSQr7KXHs1VXyn258WkPl4qe8hRYs93KKgFfIfIpwPiWOCPj9T7lqg5BG3Xkc2VyhO92gk5jeK6B0fH2KcD4ljgg4An7jgK5W1ZUpArZWKs0wAo6AI+AVAiKcTGATjmCpTagzWKrD5pYVehKk6ZdYSnSbSdtWnTvkrNh04j9zdjIW3YQ0vqcEpvFV7RSnrfzpJVYE/D4NFBMRhNhUyXH23GQsSkyNMQJ+/3RWBAzs6ZBazooNhDliMhlLBGwlUZwygQ3PN6sOqeWs2BRDP31sMhYlpgaZCZwJrFxZ2HVILWfFphR44dBkLBGwFUBx+ukmsD5nrmFSEipwVobtz0JvnV3f25ksnbNXvznV+mkdpv1JXTt3am06dh/9DKzgRcBLBFQQEfCxhJWDnaERAa/q0AHzuKT7FtViawFVcBGw/QxZal2t6cu31rVjlwksVUSbarG1gBGw/ZJ7p4GtMa7WNALe6WCipUzg+gTqEHaS/Nqs5B2DcGbPpoOHNuaO3U83geUFUKeoCqYSTJuJkEx96QSaJmc1hw6WcmfHRvkwjaXWMAJeVVcL1iGdFvvql3MahzYOEYoSs1MHiUNtNI5pLBWnCDgCPuRyBLyEqIOHno2AV7RUQLTjZgLbCyXZIjpYHnafpoHyIRP4m/3CQJ6Bl4xUgqlI9P2BEjYCrk1vHTi0Qjeb2Nvxq0mnyWscaqc4rf1pvFX/eu6MXbWR6h2Kidbm6oajeWkcmn8EDKu2kqRaRC1W1b+eO2MXAZ9B6x/bCHjjT3pevaZFwO9kjYAj4AUCOoWkg3V8Tb8llGdPjVcpIxiprz27CLiGoNZGOZEVOit0iYkRcAk2/qrasoBrYfVPacDrm6Y7mvrrZ/xjD7oJaBxVfNW/bBovm+m8tu6t3qHnFMs7uPTRX60i5FGQPgl0yUvJJL72hKNnq3b67kBrqHFUsdNzn8SlCHjFimkyKenkRVwnNiVdNd5M4HcEOvXSOkTAEbBy5bRdJnDt02pngI6AI+AzfDllGwFfL+D/B/RunL8STHcqAAAAAElFTkSuQmCC"
+                        style="display: block;">
+                </div>
+            </div>
+
+            <!--<div id="div_timer_time"  style="font-weight: bold; font-size: 2.5rem;"></div>-->
+            <div id="div_yxsj" style="font-weight: bold; font-size: 1rem;color: red">有效时间：2022-06-01 00:00至2022-06-01
+                23:59</div>
+            <div id="div_zt" style="font-weight: bold; font-size: 1rem;">审核状态：审核通过</div>
+            <div id="div_yfx" style="font-weight: bold; font-size: 1rem;">
+
+
+
+                <button id="div_yfx_button" onclick="updateByEntry(1768306)"
+                    style="border:solid 5px red;background: red;width: 150px;height: 43px;font-size:20px;"><i>已进校</i></button>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="jquery.cookie-1.4.1.min.js"></script>
+    <script>
+        var name = $.cookie("name");
+        var stuId = $.cookie("stuId");
+        var school = $.cookie("school");
+        function setInfo() {
+            document.getElementById("div_xm").innerText = name + " " + stuId;
+            document.getElementById("div_bm").innerText = school;
+        }
+    </script>
+
+    <script type="text/javascript">
+
+
+        //获取url中的参数方法
+        function getParams(name) {
+            //构造一个含有目标参数的正则表达式对象
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            //匹配目标参数
+            var r = window.location.search.substr(1).match(reg);
+            //返回参数
+            if (r != null) {
+                return unescape(r[2]);
+            } else {
+                return null;
+            }
+        }
+
+        var account = getParams("account")//"5591";
+        function fresh() {
+            location.reload();
+        }
+        setInterval(fresh, 1000 * 60 * 5);
+        function createQrCode(text, color) {
+            new QRCode(document.getElementById("div_ewm"), {
+                text: text,
+                colorDark: color,
+                width: 240,
+                height: 240
+            });
+        }
+        $.post("/nxg_data/get/data", { account: account }, function (data) {
+            console.log(data);
+            if (null != data.id || undefined != data.id) {
+                $("#div_xm").html(data.XingMing_Name + " " + data.XH)
+                $("#div_bm").html(data.YuanXi_Name)
+                $("#div_bt").html("销假进校二维码").attr("style", "font-size:20px;");
+
+                var color = "gray";
+                if (data.c_color == 1) {
+                    color = "#4EB16E";
+                    $("#div_ewm_p").attr("style", "border:solid 5px  #4EB16E;padding: 4px;border-color: #4EB16E");
+                } else if (data.c_color == 2) {
+                    color = "gray";
+                    $("#div_ewm_p").attr("style", "border:solid 5px  #4EB16E;padding: 4px;border-color: gray");
+                }
+                var url = "http://e-office.nuist.edu.cn/infoplus/form/e" + data._entry + "/view/" + data._token;
+                console.log(url);
+                $("#div_ewm").html(createQrCode(url, color));
+
+                $("#div_yxsj").html("有效时间：" + data.startTime + "至" + data.endTime);
+
+                $("#div_zt").html("审核状态：" + "审核通过");
+
+
+                var MyDiv = document.getElementById("div_yfx");
+                var button = "<button id='div_yfx_button' onclick='updateByEntry(" + data._entry + ")'><i>已进校</i></button>";
+                MyDiv.innerHTML += button;
+                if (data.SFXJ == 1) {
+
+                    $("#div_yfx_button").attr("style", "border:solid 5px red;background: red;width: 150px;height: 43px;font-size:20px;");
+                } else {
+                    $("#div_yfx_button").attr("style", "border:solid 5px #4EB16E;background: #4EB16E;width: 150px;height: 43px;font-size:20px;");
+                    $("#div_yfx_button").attr('disabled', true);
+                }
+
+
+            } else {
+                $("#div_ewm").html("您还未正常销假，或销假申请尚未通过审批。").attr("style", "color:red")
+                $("#div_timer").attr("hidden", "true");
+            }
+
+        });
+
+        function updateByEntry(a) {
+            //先通过ajax去后台请求数据，成功后携带数据进行跳转
+            if (confirm("确定要进校吗？")) {
+                $.ajax({
+                    url: "/nxg_data/txm/updateByEntry?entry=" + a,
+                    type: "POST",
+                    success: function (data) {
+                        console.log(data);
+                        if (data.statusCode == "200") {
+                            confirm("进校成功！")
+                            fresh();
+                        } else {
+                            confirm("进校失败！")
+                            fresh();
+                        }
+                    }
+                })
+            }
+        }
+    </script>
+
+
+
+
+
+</body>
+
+</html>

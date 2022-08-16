@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>下北泽大学</title>
+    <style>
+        .el-table .warning-row {
+            background: oldlace;
+        }
+
+        .el-table .success-row {
+            background: #f0f9eb;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div id="app">
+        <h3 align="center">下北泽大学通行系统</h3>
+        <br><br>
+        <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+            <!-- 姓名 -->
+            <el-form-item label="远野" prop="name">
+                <el-input v-model="ruleForm.name"></el-input>
+            </el-form-item>
+            <!-- 学号 -->
+            <el-form-item label="114514" prop="stuId">
+                <el-input v-model="ruleForm.stuId"></el-input>
+            </el-form-item>
+            <!-- 学院 -->
+            <el-form-item label="红茶学院" prop="school">
+                <el-input v-model="ruleForm.school"></el-input>
+            </el-form-item>
+            <!-- 专业 -->
+            <el-form-item label="红茶烘培" prop="major">
+                <el-input v-model="ruleForm.major"></el-input>
+            </el-form-item>
+            <!-- 班级 -->
+            <el-form-item label="11红茶4" prop="class">
+                <el-input v-model="ruleForm.class"></el-input>
+            </el-form-item>
+            <el-form-item>
+                <div align="center">
+                    <el-button type="primary" @click="submitForm('ruleForm')">雷普</el-button>
+                    <el-button @click="resetForm('ruleForm')">重置</el-button>
+                </div>
+            </el-form-item>
+        </el-form>
+        <br> <br>
+
+        <!-- 跳转页面按钮 -->
+        <div id="btns_div" style="display:none">
+            <el-row>
+                <div align="center">
+                    <a href="page/outcode.html" target="_blank">
+                        <el-button type="primary">出
+                        </el-button>
+                    </a>
+                    <a href="page/incode.html" target="_blank">
+                        <el-button type="success">进
+                        </el-button>
+                    </a>
+                </div>
+
+            </el-row>
+            <br>
+            <el-row>
+                <div align="center">
+                    <el-button type="primary">出条(开发中)</el-button>
+                    <el-button type="success">进条(开发中)</el-button>
+                </div>
+            </el-row>s
+        </div>
+
+
+    </div>
+</body>
+
+
+<script src="js/jquery.cookie-1.4.1.min.js"></script>
+<script src="js/vue.js"></script>
+<script src="element-ui/lib/index.js"></script>
+<!-- <script src="js/jquery.cookie-1.4.1.min.js"></script> -->
+<link rel="stylesheet" href="element-ui/lib/theme-chalk/index.css">
+
+<script>
+    new Vue({
+        el: "#app",
+        data() {
+            var checkName = (rule, value, callback) => {
+                if (!value) {
+                    return callback(new Error('远野不能为空'));
+                }
+
+            };
+
+            var checkStuId = (rule, value, callback) => {
+                if (!value) {
+                    return callback(new Error('114514不能为空'));
+                }
+                setTimeout(() => {
+                    if (value.length < 11 || value.length > 12) {
+                        callback(new Error('长度错误'));
+                    } else {
+                        callback();
+                    }
+
+                }, 1000);
+            };
+            var checkSchool = (rule, value, callback) => {
+                if (!value) {
+                    return callback(new Error('红茶学院不能为空'));
+                }
+            };
+            var checkMajor = (rule, value, callback) => {
+                if (!value) {
+                    return callback(new Error('红茶烘培不能为空'));
+                }
+            };
+            var checkClass = (rule, value, callback) => {
+                if (!value) {
+                    return callback(new Error('11红茶4不能为空'));
+                }
+            };
+
+            return {
+                ruleForm: {
+                    name: '',
+                    stuId: '',
+                    school: '',
+                    major: '',
+                    class: ''
+                },
+                rules: {
+                    name: [
+                        { validator: checkName, trigger: 'blur' }
+                    ],
+                    stuId: [
+                        { validator: checkStuId, trigger: 'blur' }
+                    ],
+                    school: [
+                        { validator: checkSchool, trigger: 'blur' }
+                    ],
+                    major: [
+                        { validator: checkMajor, trigger: 'blur' }
+                    ],
+                    class: [
+                        { validator: checkClass, trigger: 'blur' }
+                    ]
+                }
+            };
+        },
+        methods: {
+            submitForm(formName) {
+                this.$refs[formName].validate((valid) => {
+                    document.getElementById("btns_div").style.display = "block";
+                    if (valid) {
+                        //写入cookie
+                        // setCookie(this.ruleForm.name, this.ruleForm.stuId, this.ruleForm.school,
+                        //     this.ruleForm.major, this.ruleForm.class, 7)
+                        $.cookie('name', this.ruleForm.name, 30);
+                        $.cookie('stuId', this.ruleForm.name, 30);
+                        $.cookie('school', this.ruleForm.name, 30);
+                        $.cookie('major', this.ruleForm.name, 30);
+                        $.cookie('class', this.ruleForm.name, 30);
+
+                        alert('雷普成功');
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
+                });
+            },
+            resetForm(formName) {
+                this.$refs[formName].resetFields();
+            }
+            // setCookie(c_name, c_stuID, c_school, c_major, c_class, exdays) {
+            //     let exdate = new Date();//获取时间
+
+            //     exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000 * exdays);//保存的天数
+
+            //     //字符串拼接cookie
+
+            //     window.document.cookie = "name" + "=" + c_name + ";path=/;expires=" + exdate.toGMTString();
+            //     window.document.cookie = "stuId" + "=" + c_stuID + ";path=/;expires=" + exdate.toGMTString();
+            //     window.document.cookie = "school" + "=" + c_school + ";path=/;expires=" + exdate.toGMTString();
+            //     window.document.cookie = "major" + "=" + c_major + ";path=/;expires=" + exdate.toGMTString();
+            //     window.document.cookie = "class" + "=" + c_class + ";path=/;expires=" + exdate.toGMTString();
+
+            // }
+        }
+    })
+
+</script>
+
+</html>
