@@ -13504,8 +13504,8 @@ div.infoplus_view_wrap_outer:not(:first-child).unexpanded > .infoplus_view_label
                         style="width: 414px; display: block;">
                         <ul>
                             <li class="remark_item" style="display: block; border-bottom: none;">
-                                <div class="form_remark_title"><span class="color_b2" style=""><span
-                                            class="color_o1"><b>您(李田所)</b></span> 正在填写/办理<b>查看出校二维码</b></span></div>
+                                <div class="form_remark_title"><span class="color_b2" style=""><span class="color_o1"><b
+                                                id="remark_b">您(李田所)</b></span> 正在填写/办理<b>查看出校二维码</b></span></div>
                             </li>
                         </ul>
                     </div>
@@ -13553,6 +13553,13 @@ div.infoplus_view_wrap_outer:not(:first-child).unexpanded > .infoplus_view_label
 
 
     <div id="infoplus_iframe_flyout_div" class="round-corner"></div>
+
+    <script>
+        function setNameFromInner(name) {
+            console.log("name:" + name);
+            document.getElementById('remark_b').innerText = name;
+        }
+    </script>
 </body>
 
 

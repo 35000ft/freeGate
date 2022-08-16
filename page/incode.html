@@ -13184,16 +13184,16 @@ div.infoplus_view_wrap_outer:not(:first-child).unexpanded > .infoplus_view_label
     </script>
 
     <script>
-         function getCookie(cname) {
-             console.log("getting cookies......");
-             var name = cname + "=";
-             var ca = document.cookie.split(';');
-             for (var i = 0; i < ca.length; i++) {
-                 var c = ca[i].trim();
-                 if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-             }
-             return "";
-         }
+        function getCookie(cname) {
+            console.log("getting cookies......");
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
 
         function setInfo() {
             console.log("reading info......");
@@ -13506,8 +13506,8 @@ div.infoplus_view_wrap_outer:not(:first-child).unexpanded > .infoplus_view_label
                         style="width: 414px; display: block;">
                         <ul>
                             <li class="remark_item" style="display: block; border-bottom: none;">
-                                <div class="form_remark_title"><span class="color_b2" style=""><span
-                                            class="color_o1"><b>您(李田所)</b></span> 正在填写/办理<b>查看出校二维码</b></span></div>
+                                <div class="form_remark_title"><span class="color_b2" style=""><span class="color_o1"><b
+                                                id="remark_b">您(李田所)</b></span> 正在填写/办理<b>查看出校二维码</b></span></div>
                             </li>
                         </ul>
                     </div>
@@ -13555,6 +13555,12 @@ div.infoplus_view_wrap_outer:not(:first-child).unexpanded > .infoplus_view_label
 
 
     <div id="infoplus_iframe_flyout_div" class="round-corner"></div>
+    <script>
+        function setNameFromInner(name) {
+            console.log("name:" + name);
+            document.getElementById('remark_b').innerText = name;
+        }
+    </script>
 </body>
 
 </html>
