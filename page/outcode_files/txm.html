@@ -472,15 +472,18 @@
             console.log(name);
             console.log(stuId);
             console.log(school);
+            
+            setInfo();
         }
 
-        function setInfo() {
+        function setInfo(name, stuId, school) {
+            console.log("setting info...");
             document.getElementById("div_xm").innerText = name + " " + stuId;
             document.getElementById("div_bm").innerText = school;
         }
 
         getInfo();
-        setInfo();
+
     </script>
 
     <!-- 设置时间 -->
