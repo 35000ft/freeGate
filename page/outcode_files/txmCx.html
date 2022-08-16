@@ -553,18 +553,27 @@
 
         </div>
     </div>
-    <script src="../../js/jquery-1.7.2.min.js"></script>
-    <script src="../../js/jquery.cookie-1.4.1.min.js"></script>
+    <!-- <script src="../../js/jquery-1.7.2.min.js"></script>
+    <script src="../../js/jquery.cookie-1.4.1.min.js"></script> -->
     <script>
-        var name = $.cookie("name");
-        var stuId = $.cookie("stuId");
-        var school = $.cookie("school");
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+
         function setInfo() {
+            var name = getCookie("name");
+            var stuId = getCookie("stuId");
+            var school = getCookie("school");
+
             document.getElementById("div_xm").innerText = name + " " + stuId;
             document.getElementById("div_bm").innerText = school;
         }
-
-
 
     </script>
     <script type="text/javascript">

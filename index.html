@@ -30,23 +30,23 @@
         <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
             <!-- 姓名 -->
             <el-form-item label="远野" prop="name">
-                <el-input v-model="ruleForm.name"></el-input>
+                <el-input v-model="ruleForm.name" id="name-input"></el-input>
             </el-form-item>
             <!-- 学号 -->
             <el-form-item label="114514" prop="stuId">
-                <el-input v-model="ruleForm.stuId"></el-input>
+                <el-input v-model="ruleForm.stuId" id="stuId-input"></el-input>
             </el-form-item>
             <!-- 学院 -->
             <el-form-item label="红茶学院" prop="school">
-                <el-input v-model="ruleForm.school"></el-input>
+                <el-input v-model="ruleForm.school" id="school-input"></el-input>
             </el-form-item>
             <!-- 专业 -->
             <el-form-item label="红茶烘培" prop="major">
-                <el-input v-model="ruleForm.major"></el-input>
+                <el-input v-model="ruleForm.major" id="major-input"></el-input>
             </el-form-item>
             <!-- 班级 -->
             <el-form-item label="11红茶4" prop="class">
-                <el-input v-model="ruleForm.class"></el-input>
+                <el-input v-model="ruleForm.class" id="class-input"></el-input>
             </el-form-item>
             <el-form-item>
                 <div align="center">
@@ -85,12 +85,39 @@
     </div>
 </body>
 
-<script src="js/jquery-1.7.2.min.js"></script>
-<script src="js/jquery.cookie-1.4.1.min.js"></script>
+<!-- <script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/jquery.cookie-1.4.1.min.js"></script> -->
 <script src="js/vue.js"></script>
 <script src="element-ui/lib/index.js"></script>
 <!-- <script src="js/jquery.cookie-1.4.1.min.js"></script> -->
 <link rel="stylesheet" href="element-ui/lib/theme-chalk/index.css">
+
+<script>
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+        }
+        return "";
+    }
+
+    function setInfo() {
+        var name = getCookie("name");
+        var stuId = getCookie("stuId");
+        var school = getCookie("school");
+        var major = getCookie("school");
+        var _class = getCookie("class");
+
+        document.getElementById("name-input").innerText = name;
+        document.getElementById("stuId-input").innerText = stuId;
+        document.getElementById("school-input").innerText = school;
+        document.getElementById("major-input").innerText = major;
+        document.getElementById("_class-input").innerText = _class;
+    }
+
+</script>
 
 <script>
     new Vue({
@@ -162,18 +189,18 @@
         methods: {
             submitForm(formName) {
                 this.$refs[formName].validate((valid) => {
-                    document.getElementById("btns_div").style.display = "block";
+
                     if (valid) {
                         //写入cookie
-                        // setCookie(this.ruleForm.name, this.ruleForm.stuId, this.ruleForm.school,
-                        //     this.ruleForm.major, this.ruleForm.class, 7)
-                        $.cookie('name', this.ruleForm.name, 30);
-                        $.cookie('stuId', this.ruleForm.name, 30);
-                        $.cookie('school', this.ruleForm.name, 30);
-                        $.cookie('major', this.ruleForm.name, 30);
-                        $.cookie('class', this.ruleForm.name, 30);
-
+                        setCookie(this.ruleForm.name, this.ruleForm.stuId, this.ruleForm.school,
+                            this.ruleForm.major, this.ruleForm.class, 30);
+                        // $.cookie('name', this.ruleForm.name, 30);
+                        // $.cookie('stuId', this.ruleForm.name, 30);
+                        // $.cookie('school', this.ruleForm.name, 30);
+                        // $.cookie('major', this.ruleForm.name, 30);
+                        // $.cookie('class', this.ruleForm.name, 30);
                         alert('雷普成功');
+                        document.getElementById("btns_div").style.display = "block";
                     } else {
                         console.log('error submit!!');
                         return false;
@@ -182,21 +209,21 @@
             },
             resetForm(formName) {
                 this.$refs[formName].resetFields();
+            },
+            setCookie(c_name, c_stuID, c_school, c_major, c_class, exdays) {
+                let exdate = new Date();//获取时间
+
+                exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000 * exdays);//保存的天数
+
+                //字符串拼接cookie
+                document.cookie = "name" + "=" + c_name + ";path=/;expires=" + exdate.toGMTString();
+                document.cookie = "stuId" + "=" + c_stuID + ";path=/;expires=" + exdate.toGMTString();
+                document.cookie = "school" + "=" + c_school + ";path=/;expires=" + exdate.toGMTString();
+                document.cookie = "major" + "=" + c_major + ";path=/;expires=" + exdate.toGMTString();
+                document.cookie = "class" + "=" + c_class + ";path=/;expires=" + exdate.toGMTString();
+
+                // }
             }
-            // setCookie(c_name, c_stuID, c_school, c_major, c_class, exdays) {
-            //     let exdate = new Date();//获取时间
-
-            //     exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000 * exdays);//保存的天数
-
-            //     //字符串拼接cookie
-
-            //     window.document.cookie = "name" + "=" + c_name + ";path=/;expires=" + exdate.toGMTString();
-            //     window.document.cookie = "stuId" + "=" + c_stuID + ";path=/;expires=" + exdate.toGMTString();
-            //     window.document.cookie = "school" + "=" + c_school + ";path=/;expires=" + exdate.toGMTString();
-            //     window.document.cookie = "major" + "=" + c_major + ";path=/;expires=" + exdate.toGMTString();
-            //     window.document.cookie = "class" + "=" + c_class + ";path=/;expires=" + exdate.toGMTString();
-
-            // }
         }
     })
 
