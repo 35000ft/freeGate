@@ -451,18 +451,36 @@
     </style>
 
     <script>
-        function setInfo() {
+        function getCookie(cname) {
+            console.log("getting cookies......");
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
 
-            var name = parent.name;
-            var stuId = parent.stuId;
-            var school = parent.school;
+        function getInfo() {
+            console.log("reading info......");
+            console.log(document.cookie);
+            var name = getCookie("name");
+            var stuId = getCookie("stuId");
+            var school = getCookie("school");
+
             console.log(name);
             console.log(stuId);
             console.log(school);
+        }
 
+        function setInfo() {
             document.getElementById("div_xm").innerText = name + " " + stuId;
             document.getElementById("div_bm").innerText = school;
         }
+
+        getInfo();
+        setInfo();
     </script>
 
     <!-- 设置时间 -->
