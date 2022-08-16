@@ -450,79 +450,7 @@
         }
     </style>
 
-    <script>
-        function getCookie(cname) {
-            console.log("getting cookies......");
-            var name = cname + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i].trim();
-                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-            }
-            return "";
-        }
 
-        function getInfo() {
-            console.log("reading info......");
-            console.log(document.cookie);
-            var name = getCookie("name");
-            var stuId = getCookie("stuId");
-            var school = getCookie("school");
-
-            console.log(name);
-            console.log(stuId);
-            console.log(school);
-
-            setInfo(name, stuId, school);
-        }
-
-        function setInfo(name, stuId, school) {
-            console.log("setting info...");
-            document.getElementById("div_xm").innerText = name + " " + stuId;
-            document.getElementById("div_bm").innerText = school;
-        }
-
-        getInfo();
-
-    </script>
-
-    <!-- 设置时间 -->
-    <script>
-
-        //获取系统时间
-        function showTime() {
-            nowtime = new Date();
-            year = nowtime.getFullYear();//年
-            month = nowtime.getMonth() + 1;//月
-            day = nowtime.getDate();//日
-            hour = nowtime.getHours();//时
-            minutes = nowtime.getMinutes(); //分
-            seconds = nowtime.getSeconds(); //秒
-            //文字增加空格
-            //document.getElementById("div_timer").style = "white-space:pre;";
-            //显示时间
-            document.getElementById("div_timer").innerText = p(month) + "-" + p(day) + "\t\t\t" + p(hour) + ":" + p(minutes) + ":" + p(seconds);
-            // document.getElementById("div_timer_time").innerText = p(hour) + ":" + p(minutes) + ":" + p(seconds);
-        }
-
-        function showDate() {
-            today = new Date();
-            year = today.getFullYear();
-            month = today.getMonth() + 1;
-            day = today.getDate();
-            document.getElementById("div_yxsj").innerText = "有效时间：" + p(year) + "-" + p(month) + "-" + p(day) + " 00:00至\n" +
-                p(year) + "-" + p(month) + "-" + p(day) + " 23:59";
-        }
-
-        setInterval("showTime()", 1000);
-        setInterval("showDate()", 1000);
-
-
-        //月日时分秒小于10补0
-        function p(s) {
-            return s < 10 ? '0' + s : s;
-        }
-    </script>
     <style>
         * {
             padding: 0;
@@ -666,7 +594,82 @@
         // }
     </script>
 
+    <script>
+        function getCookie(cname) {
+            console.log("getting cookies......");
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
 
+        function getInfo() {
+            console.log("reading info......");
+            console.log(document.cookie);
+            var name = getCookie("name");
+            var stuId = getCookie("stuId");
+            var school = getCookie("school");
+
+            console.log(name);
+            console.log(stuId);
+            console.log(school);
+
+            setInfo(name, stuId, school);
+        }
+
+        function setInfo(name, stuId, school) {
+            console.log("setting info...");
+            console.log(name);
+            console.log(stuId);
+            console.log(school);
+            document.getElementById("div_xm").innerText = name + " " + stuId;
+            document.getElementById("div_bm").innerText = school;
+        }
+
+        getInfo();
+
+    </script>
+
+    <!-- 设置时间 -->
+    <script>
+
+        //获取系统时间
+        function showTime() {
+            nowtime = new Date();
+            year = nowtime.getFullYear();//年
+            month = nowtime.getMonth() + 1;//月
+            day = nowtime.getDate();//日
+            hour = nowtime.getHours();//时
+            minutes = nowtime.getMinutes(); //分
+            seconds = nowtime.getSeconds(); //秒
+            //文字增加空格
+            //document.getElementById("div_timer").style = "white-space:pre;";
+            //显示时间
+            document.getElementById("div_timer").innerText = p(month) + "-" + p(day) + "\t\t\t" + p(hour) + ":" + p(minutes) + ":" + p(seconds);
+            // document.getElementById("div_timer_time").innerText = p(hour) + ":" + p(minutes) + ":" + p(seconds);
+        }
+
+        function showDate() {
+            today = new Date();
+            year = today.getFullYear();
+            month = today.getMonth() + 1;
+            day = today.getDate();
+            document.getElementById("div_yxsj").innerText = "有效时间：" + p(year) + "-" + p(month) + "-" + p(day) + " 00:00至\n" +
+                p(year) + "-" + p(month) + "-" + p(day) + " 23:59";
+        }
+
+        setInterval("showTime()", 1000);
+        setInterval("showDate()", 1000);
+
+
+        //月日时分秒小于10补0
+        function p(s) {
+            return s < 10 ? '0' + s : s;
+        }
+    </script>
 
 
 
