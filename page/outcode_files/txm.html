@@ -463,9 +463,12 @@
         }
 
         function setInfo() {
+            console.log(document.cookie);
+            consala.log("setting info...");
             var name = getCookie("name");
             var stuId = getCookie("stuId");
             var school = getCookie("school");
+
             console.log(name);
             console.log(stuId);
             console.log(school);
