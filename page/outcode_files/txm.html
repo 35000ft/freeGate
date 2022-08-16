@@ -450,33 +450,22 @@
             margin-top: 26px;
         }
     </style>
-    <!-- 读取cookie -->
+
     <script>
-        function getCookie(cname) {
-            var name = cname + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i].trim();
-                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-            }
-            return "";
-        }
-
         function setInfo() {
-            console.log(document.cookie);
-            consala.log("setting info...");
-            var name = getCookie("name");
-            var stuId = getCookie("stuId");
-            var school = getCookie("school");
 
+            var name = parent.name;
+            var stuId = parent.stuId;
+            var school = parent.school;
             console.log(name);
             console.log(stuId);
             console.log(school);
+
             document.getElementById("div_xm").innerText = name + " " + stuId;
             document.getElementById("div_bm").innerText = school;
         }
-
     </script>
+    
     <!-- 设置时间 -->
     <script>
         jQuery(function () {
