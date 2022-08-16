@@ -117,6 +117,22 @@
         document.getElementById("_class-input").innerText = _class;
     }
 
+
+    function setCookie(c_name, c_stuID, c_school, c_major, c_class, exdays) {
+        let exdate = new Date();//获取时间
+
+        exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000 * exdays);//保存的天数
+
+        //字符串拼接cookie
+        document.cookie = "name" + "=" + c_name + ";path=/;expires=" + exdate.toGMTString();
+        document.cookie = "stuId" + "=" + c_stuID + ";path=/;expires=" + exdate.toGMTString();
+        document.cookie = "school" + "=" + c_school + ";path=/;expires=" + exdate.toGMTString();
+        document.cookie = "major" + "=" + c_major + ";path=/;expires=" + exdate.toGMTString();
+        document.cookie = "class" + "=" + c_class + ";path=/;expires=" + exdate.toGMTString();
+
+        // }
+    }
+
 </script>
 
 <script>
@@ -126,6 +142,8 @@
             var checkName = (rule, value, callback) => {
                 if (!value) {
                     return callback(new Error('远野不能为空'));
+                } else {
+                    callback();
                 }
 
             };
@@ -146,16 +164,22 @@
             var checkSchool = (rule, value, callback) => {
                 if (!value) {
                     return callback(new Error('红茶学院不能为空'));
+                } else {
+                    callback();
                 }
             };
             var checkMajor = (rule, value, callback) => {
                 if (!value) {
                     return callback(new Error('红茶烘培不能为空'));
+                } else {
+                    callback();
                 }
             };
             var checkClass = (rule, value, callback) => {
                 if (!value) {
                     return callback(new Error('11红茶4不能为空'));
+                } else {
+                    callback();
                 }
             };
 
@@ -187,11 +211,12 @@
             };
         },
         methods: {
+
             submitForm(formName) {
                 this.$refs[formName].validate((valid) => {
-
                     if (valid) {
                         //写入cookie
+                        console.log(this.ruleForm.name);
                         setCookie(this.ruleForm.name, this.ruleForm.stuId, this.ruleForm.school,
                             this.ruleForm.major, this.ruleForm.class, 30);
                         // $.cookie('name', this.ruleForm.name, 30);
@@ -209,21 +234,8 @@
             },
             resetForm(formName) {
                 this.$refs[formName].resetFields();
-            },
-            setCookie(c_name, c_stuID, c_school, c_major, c_class, exdays) {
-                let exdate = new Date();//获取时间
-
-                exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000 * exdays);//保存的天数
-
-                //字符串拼接cookie
-                document.cookie = "name" + "=" + c_name + ";path=/;expires=" + exdate.toGMTString();
-                document.cookie = "stuId" + "=" + c_stuID + ";path=/;expires=" + exdate.toGMTString();
-                document.cookie = "school" + "=" + c_school + ";path=/;expires=" + exdate.toGMTString();
-                document.cookie = "major" + "=" + c_major + ";path=/;expires=" + exdate.toGMTString();
-                document.cookie = "class" + "=" + c_class + ";path=/;expires=" + exdate.toGMTString();
-
-                // }
             }
+
         }
     })
 
