@@ -24,73 +24,99 @@
 </head>
 
 <body>
-    <div id="app">
-        <h3 align="center">下北泽大学通行系统</h3>
-        <br><br>
-        <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-            <!-- 姓名 -->
-            <el-form-item label="远野" prop="name">
-                <el-input v-model="ruleForm.name" id="name-input"></el-input>
-            </el-form-item>
-            <!-- 学号 -->
-            <el-form-item label="114514" prop="stuId">
-                <el-input v-model="ruleForm.stuId" id="stuId-input"></el-input>
-            </el-form-item>
-            <!-- 学院 -->
-            <el-form-item label="红茶学院" prop="school">
-                <el-input v-model="ruleForm.school" id="school-input"></el-input>
-            </el-form-item>
-            <!-- 专业 -->
-            <el-form-item label="红茶烘培" prop="major">
-                <el-input v-model="ruleForm.major" id="major-input"></el-input>
-            </el-form-item>
-            <!-- 班级 -->
-            <el-form-item label="11红茶4" prop="class">
-                <el-input v-model="ruleForm.class" id="class-input"></el-input>
-            </el-form-item>
-            <el-form-item>
-                <div align="center">
-                    <el-button type="primary" @click="submitForm('ruleForm')">雷普</el-button>
-                    <el-button @click="resetForm('ruleForm')">重置</el-button>
-                </div>
-            </el-form-item>
-        </el-form>
-        <br> <br>
+<div id="app">
+    <h3 align="center">下北泽大学通行系统</h3>
+    <br><br>
+    <el-form :model="ruleForm" :rules="rules" class="demo-ruleForm" label-width="100px" ref="ruleForm" status-icon>
+        <!-- 姓名 -->
+        <el-form-item label="远野" prop="name">
+            <el-input id="name-input" v-model="ruleForm.name"></el-input>
+        </el-form-item>
+        <!-- 学号 -->
+        <el-form-item label="114514" prop="stuId">
+            <el-input id="stuId-input" v-model="ruleForm.stuId"></el-input>
+        </el-form-item>
+        <!-- 学院 -->
+        <el-form-item label="红茶学院" prop="school">
+            <el-input id="school-input" v-model="ruleForm.school"></el-input>
+        </el-form-item>
+        <!-- 专业 -->
+        <el-form-item label="红茶烘培" prop="major">
+            <el-input id="major-input" v-model="ruleForm.major"></el-input>
+        </el-form-item>
+        <!-- 班级 -->
+        <el-form-item label="11红茶4" prop="class">
+            <el-input id="class-input" v-model="ruleForm.class"></el-input>
+        </el-form-item>
+        <!-- 辅导员 -->
+        <el-form-item label="先辈1" prop="teacher1">
+            <el-input id="teacher1-input" v-model="ruleForm.teacher1"></el-input>
+        </el-form-item>
+        <!-- 副书记 -->
+        <!--            <el-form-item label="先辈2" prop="teacher2">-->
+        <!--                <el-input v-model="ruleForm.teacher2" id="teacher2-input"></el-input>-->
+        <!--            </el-form-item>-->
+        <!-- 性别 -->
+        <el-form-item label="G/L" prop="gender">
+            <el-input id="gender-input" v-model="ruleForm.gender"></el-input>
+        </el-form-item>
+        <!-- 电话 -->
+        <el-form-item label="哼哼哼号码" prop="phone">
+            <el-input id="phone-input" v-model="ruleForm.phone"></el-input>
+        </el-form-item>
+        <!-- 身份证 -->
+        <el-form-item label="homo号" prop="idCard">
+            <el-input id="idCard-input" v-model="ruleForm.idCard"></el-input>
+        </el-form-item>
+        <!-- 原因 -->
+        <el-form-item label="雷普原因" prop="reason">
+            <el-input id="reason-input" v-model="ruleForm.reason"></el-input>
+        </el-form-item>
 
-        <!-- 跳转页面按钮 -->
-        <div id="btns_div" style="display:none">
-            <el-row>
-                <div align="center">
-                    <a href="page/outcode.html" target="_blank">
-                        <el-button type="primary">出
-                        </el-button>
-                    </a>
-                    <a href="page/incode.html" target="_blank">
-                        <el-button type="success">进
-                        </el-button>
-                    </a>
-                </div>
+        <el-form-item>
+            <div align="center">
+                <el-button @click="submitForm('ruleForm')" type="primary">雷普</el-button>
+                <el-button @click="resetForm('ruleForm')">重置</el-button>
+            </div>
+        </el-form-item>
+    </el-form>
+    <br> <br>
 
-            </el-row>
-            <br>
-            <el-row>
-                <div align="center">
-                    <el-button type="primary">出条(开发中)</el-button>
-                    <el-button type="success">进条(开发中)</el-button>
-                </div>
-            </el-row>s
-        </div>
+    <!-- 跳转页面按钮 -->
+    <div id="btns_div" style="display:none">
+        <el-row>
+            <div align="center">
+                <a href="page/outcode.html" target="_blank">
+                    <el-button type="primary">出
+                    </el-button>
+                </a>
+                <a href="page/incode.html" target="_blank">
+                    <el-button type="success">进
+                    </el-button>
+                </a>
+            </div>
 
-
+        </el-row>
+        <br>
+        <el-row>
+            <div align="center">
+                <a href="page/outpage.html">
+                    <el-button type="primary">出条</el-button>
+                </a>
+                <el-button type="success">进条(开发中)</el-button>
+            </div>
+        </el-row>
+        s
     </div>
+
+
+</div>
 </body>
 
-<!-- <script src="js/jquery-1.7.2.min.js"></script>
-<script src="js/jquery.cookie-1.4.1.min.js"></script> -->
 <script src="js/vue.js"></script>
 <script src="element-ui/lib/index.js"></script>
 <!-- <script src="js/jquery.cookie-1.4.1.min.js"></script> -->
-<link rel="stylesheet" href="element-ui/lib/theme-chalk/index.css">
+<link href="element-ui/lib/theme-chalk/index.css" rel="stylesheet">
 
 <script>
     function getCookie(cname) {
@@ -103,11 +129,16 @@
         return "";
     }
 
-
-    function setCookie(c_name, c_stuID, c_school, c_major, c_class, exdays) {
+    function setCookie(c_name, c_stuID, c_school, c_major, c_class, c_teacher1,
+                       c_gender, c_idCard, c_phone, c_reason, exdays) {
         let exdate = new Date();//获取时间
 
         exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000 * exdays);//保存的天数
+
+        console.log("setting cookies")
+        console.log(c_teacher1);
+        console.log(c_gender);
+        console.log(c_idCard);
 
         //字符串拼接cookie
         document.cookie = "name" + "=" + c_name + ";path=/;expires=" + exdate.toGMTString();
@@ -115,6 +146,11 @@
         document.cookie = "school" + "=" + c_school + ";path=/;expires=" + exdate.toGMTString();
         document.cookie = "major" + "=" + c_major + ";path=/;expires=" + exdate.toGMTString();
         document.cookie = "class" + "=" + c_class + ";path=/;expires=" + exdate.toGMTString();
+        document.cookie = "teacher1" + "=" + c_teacher1 + ";path=/;expires=" + exdate.toGMTString();
+        document.cookie = "gender" + "=" + c_gender + ";path=/;expires=" + exdate.toGMTString();
+        document.cookie = "idCard" + "=" + c_idCard + ";path=/;expires=" + exdate.toGMTString();
+        document.cookie = "phone" + "=" + c_phone + ";path=/;expires=" + exdate.toGMTString();
+        document.cookie = "reason" + "=" + c_reason + ";path=/;expires=" + exdate.toGMTString();
 
         // }
     }
@@ -131,9 +167,7 @@
                 } else {
                     callback();
                 }
-
             };
-
             var checkStuId = (rule, value, callback) => {
                 if (!value) {
                     return callback(new Error('114514不能为空'));
@@ -168,6 +202,60 @@
                     callback();
                 }
             };
+            var checkGender = (rule, value, callback) => {
+                if (!value) {
+                    return callback(new Error('G/L不能为空'));
+                }
+                setTimeout(() => {
+                    if (value != '男' && value != '女') {
+                        callback(new Error('你是哪种homo？'));
+                    } else {
+                        callback();
+                    }
+                }, 1000);
+            };
+            var checkTeacher1 = (rule, value, callback) => {
+                if (!value) {
+                    return callback(new Error('先辈1不能为空'));
+                } else {
+                    callback();
+                }
+            };
+            var checkPhone = (rule, value, callback) => {
+                if (!value) {
+                    return callback(new Error('哼哼哼号码不能为空'));
+                }
+                setTimeout(() => {
+                    let reg = /^1[356789]\d{9}$/;
+                    if (!(reg.test(value))) {
+                        callback(new Error('哼哼哼号码格式错误'));
+                    } else {
+                        callback();
+                    }
+
+                }, 1000);
+            };
+            var checkIdCard = (rule, value, callback) => {
+                if (!value) {
+                    return callback(new Error('homo号不能为空'));
+                }
+                setTimeout(() => {
+                    let reg = /(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+                    if (!(reg.test(value))) {
+                        callback(new Error('homo号格式错误'));
+                    } else {
+                        callback();
+                    }
+
+                }, 1000);
+            };
+            var checkReason = (rule, value, callback) => {
+                if (!value) {
+                    return callback(new Error('雷普原因不能为空'));
+                } else {
+                    callback();
+                }
+            };
 
             return {
                 ruleForm: {
@@ -175,23 +263,44 @@
                     stuId: '',
                     school: '',
                     major: '',
-                    class: ''
+                    class: '',
+                    gender: '',
+                    idCard: '',
+                    phone: '',
+                    teacher1: '',
+                    // teacher2: '',
+                    reason: ''
                 },
                 rules: {
                     name: [
-                        { validator: checkName, trigger: 'blur' }
+                        {validator: checkName, trigger: 'blur'}
                     ],
                     stuId: [
-                        { validator: checkStuId, trigger: 'blur' }
+                        {validator: checkStuId, trigger: 'blur'}
                     ],
                     school: [
-                        { validator: checkSchool, trigger: 'blur' }
+                        {validator: checkSchool, trigger: 'blur'}
                     ],
                     major: [
-                        { validator: checkMajor, trigger: 'blur' }
+                        {validator: checkMajor, trigger: 'blur'}
                     ],
                     class: [
-                        { validator: checkClass, trigger: 'blur' }
+                        {validator: checkClass, trigger: 'blur'}
+                    ],
+                    gender: [
+                        {validator: checkGender, trigger: 'blur'}
+                    ],
+                    teacher1: [
+                        {validator: checkTeacher1, trigger: 'blur'}
+                    ],
+                    phone: [
+                        {validator: checkPhone, trigger: 'blur'}
+                    ],
+                    idCard: [
+                        {validator: checkIdCard, trigger: 'blur'}
+                    ],
+                    reason: [
+                        {validator: checkReason, trigger: 'blur'}
                     ]
                 }
             };
@@ -202,10 +311,11 @@
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
                         //写入cookie
-                        console.log(this.ruleForm.name);
                         setCookie(this.ruleForm.name, this.ruleForm.stuId, this.ruleForm.school,
-                            this.ruleForm.major, this.ruleForm.class, 30);
-                        // $.cookie('name', this.ruleForm.name, 30);
+                            this.ruleForm.major, this.ruleForm.class, this.ruleForm.teacher1, this.ruleForm.gender,
+                            this.ruleForm.idCard, this.ruleForm.phone, this.ruleForm.reason, 30);
+                        // setCookie(c_name, c_stuID, c_school, c_major, c_class, c_teacher1,
+                        //     c_gender, c_idCard, c_phone, c_reason, exdays)
 
                         alert('雷普成功');
                         document.getElementById("btns_div").style.display = "block";
@@ -221,20 +331,27 @@
             setCookieInfo() {
                 console.log("setting info...");
                 console.log(document.cookie);
-                var name = getCookie("name");
-                var stuId = getCookie("stuId");
-                var school = getCookie("school");
-                var major = getCookie("school");
-                var _class = getCookie("class");
-
-                console.log("name:" + name);
+                let name = getCookie("name");
+                let stuId = getCookie("stuId");
+                let school = getCookie("school");
+                let major = getCookie("major");
+                let _class = getCookie("class");
+                let phone = getCookie("phone");
+                let teacher1 = getCookie("teacher1");
+                let gender = getCookie("gender");
+                let idCard = getCookie("idCard");
+                let reason = getCookie("reason");
 
                 this.ruleForm.name = name;
                 this.ruleForm.stuId = stuId;
                 this.ruleForm.school = school;
                 this.ruleForm.major = major;
                 this.ruleForm.class = _class;
-
+                this.ruleForm.teacher1 = teacher1;
+                this.ruleForm.gender = gender;
+                this.ruleForm.phone = phone;
+                this.ruleForm.idCard = idCard;
+                this.ruleForm.reason = reason;
             }
 
         },
