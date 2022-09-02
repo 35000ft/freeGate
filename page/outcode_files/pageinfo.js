@@ -19,6 +19,7 @@ function getInfo() {
     const _class = getCookie("class");
     const phone = getCookie("phone");
     const teacher1 = getCookie("teacher1");
+    const teacher2 = getCookie("teacher2");
     const gender = getCookie("gender");
     const idCard = getCookie("idCard");
     const reason = getCookie("reason");
@@ -27,10 +28,10 @@ function getInfo() {
     console.log(stuId);
     console.log(school);
 
-    setInfo(name, stuId, school, major, _class, phone, teacher1, gender, idCard, reason);
+    setInfo(name, stuId, school, major, _class, phone, teacher1, teacher2, gender, idCard, reason);
 }
 
-function setInfo(name, stuId, school, major, _class, phone, teacher1, gender, idCard, reason) {
+function setInfo(name, stuId, school, major, _class, phone, teacher1, teacher2, gender, idCard, reason) {
     console.log("setting info...");
     console.log(name);
     console.log(stuId);
@@ -72,6 +73,16 @@ function setInfo(name, stuId, school, major, _class, phone, teacher1, gender, id
     document.getElementById("label_f27754bc-9f93-49c7-b610-9e435a6c8bc4").innerText = teacher1;
     document.getElementById("t1_b_name").innerText = teacher1;
 
+    if (teacher2 != '' && teacher2 != null) {
+        document.getElementById("deputySecretary-1").style.display = "";
+        document.getElementById("deputySecretary-2").style.display = "";
+        document.getElementById("deputySecretary-3").style.display = "";
+        document.getElementById("deputySecretary-4").style.display = "";
+        document.getElementById("label_b2ac1a5c-db24-4f31-9d5b-ce15607825ed").innerText = teacher2;
+
+    }
+
+
     //设置理由
     document.getElementById("label_b5771863-033b-4fcb-9b45-4426b4509e3b").innerText = reason;
 
@@ -99,7 +110,8 @@ function setTime() {
     document.getElementById("label_1b3ef7a5-5c59-4a3f-8e4f-543359df79e6").innerText = date1;
     document.getElementById("label_eceefeef-aca5-40d9-bdc0-d1a3e3d42616").innerText = date1;
     document.getElementById("label_2eec6805-4ecd-45fa-9f55-34055e7c92d2").innerText = date1;
-    document.getElementById("span_date").innerText = date2 + " " + nowTime;
+    document.getElementById("label_5f50a019-a5bf-4c56-9c3e-929f312afd27").innerText = date1;//2022-04-16
+    document.getElementById("span_date").innerText = date2 + " " + nowTime;//2022/06/05 18:06
     document.getElementById("label_4b946588-0b8b-4952-8cab-2e3a92cbfdfe").innerText = outTime;
     document.getElementById("label_fa5d6d38-416a-4c81-a86c-7a24c0117482").innerText = inTime;
 

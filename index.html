@@ -53,9 +53,9 @@
             <el-input id="teacher1-input" v-model="ruleForm.teacher1"></el-input>
         </el-form-item>
         <!-- 副书记 -->
-        <!--            <el-form-item label="先辈2" prop="teacher2">-->
-        <!--                <el-input v-model="ruleForm.teacher2" id="teacher2-input"></el-input>-->
-        <!--            </el-form-item>-->
+        <el-form-item label="先辈2" prop="teacher2">
+            <el-input id="teacher2-input" v-model="ruleForm.teacher2"></el-input>
+        </el-form-item>
         <!-- 性别 -->
         <el-form-item label="G/L" prop="gender">
             <el-input id="gender-input" v-model="ruleForm.gender"></el-input>
@@ -129,7 +129,7 @@
         return "";
     }
 
-    function setCookie(c_name, c_stuID, c_school, c_major, c_class, c_teacher1,
+    function setCookie(c_name, c_stuID, c_school, c_major, c_class, c_teacher1, c_teacher2,
                        c_gender, c_idCard, c_phone, c_reason, exdays) {
         let exdate = new Date();//获取时间
 
@@ -137,8 +137,6 @@
 
         console.log("setting cookies")
         console.log(c_teacher1);
-        console.log(c_gender);
-        console.log(c_idCard);
 
         //字符串拼接cookie
         document.cookie = "name" + "=" + c_name + ";path=/;expires=" + exdate.toGMTString();
@@ -147,6 +145,7 @@
         document.cookie = "major" + "=" + c_major + ";path=/;expires=" + exdate.toGMTString();
         document.cookie = "class" + "=" + c_class + ";path=/;expires=" + exdate.toGMTString();
         document.cookie = "teacher1" + "=" + c_teacher1 + ";path=/;expires=" + exdate.toGMTString();
+        document.cookie = "teacher2" + "=" + c_teacher2 + ";path=/;expires=" + exdate.toGMTString();
         document.cookie = "gender" + "=" + c_gender + ";path=/;expires=" + exdate.toGMTString();
         document.cookie = "idCard" + "=" + c_idCard + ";path=/;expires=" + exdate.toGMTString();
         document.cookie = "phone" + "=" + c_phone + ";path=/;expires=" + exdate.toGMTString();
@@ -268,7 +267,7 @@
                     idCard: '',
                     phone: '',
                     teacher1: '',
-                    // teacher2: '',
+                    teacher2: '',
                     reason: ''
                 },
                 rules: {
@@ -312,8 +311,8 @@
                     if (valid) {
                         //写入cookie
                         setCookie(this.ruleForm.name, this.ruleForm.stuId, this.ruleForm.school,
-                            this.ruleForm.major, this.ruleForm.class, this.ruleForm.teacher1, this.ruleForm.gender,
-                            this.ruleForm.idCard, this.ruleForm.phone, this.ruleForm.reason, 30);
+                            this.ruleForm.major, this.ruleForm.class, this.ruleForm.teacher1, this.ruleForm.teacher2,
+                            this.ruleForm.gender, this.ruleForm.idCard, this.ruleForm.phone, this.ruleForm.reason, 30);
                         // setCookie(c_name, c_stuID, c_school, c_major, c_class, c_teacher1,
                         //     c_gender, c_idCard, c_phone, c_reason, exdays)
 
@@ -338,6 +337,7 @@
                 let _class = getCookie("class");
                 let phone = getCookie("phone");
                 let teacher1 = getCookie("teacher1");
+                let teacher2 = getCookie("teacher2");
                 let gender = getCookie("gender");
                 let idCard = getCookie("idCard");
                 let reason = getCookie("reason");
@@ -348,6 +348,7 @@
                 this.ruleForm.major = major;
                 this.ruleForm.class = _class;
                 this.ruleForm.teacher1 = teacher1;
+                this.ruleForm.teacher2 = teacher2;
                 this.ruleForm.gender = gender;
                 this.ruleForm.phone = phone;
                 this.ruleForm.idCard = idCard;
