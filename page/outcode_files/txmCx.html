@@ -622,8 +622,9 @@
             year = today.getFullYear();
             month = today.getMonth() + 1;
             day = today.getDate();
-            document.getElementById("div_yxsj").innerText = "有效时间：" + p(year) + "-" + p(month) + "-" + p(day) + " 00:00至\n" +
-                p(year) + "-" + p(month) + "-" + p(day) + " 21:00";
+            h = today.getHours()
+            document.getElementById("div_yxsj").innerText = "有效时间：" + p(year) + "-" + p(month) + "-" + p(day) + p(h) + " :00至\n" +
+                p(year) + "-" + p(month) + "-" + p(day) + " 22:00";
         }
 
         setInterval("showTime()", 1000);
