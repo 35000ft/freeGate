@@ -24,93 +24,93 @@
 </head>
 
 <body>
-<div id="app">
-    <h3 align="center">下北泽大学通行系统</h3>
-    <br><br>
-    <el-form :model="ruleForm" :rules="rules" class="demo-ruleForm" label-width="100px" ref="ruleForm" status-icon>
-        <!-- 姓名 -->
-        <el-form-item label="远野" prop="name">
-            <el-input id="name-input" v-model="ruleForm.name"></el-input>
-        </el-form-item>
-        <!-- 学号 -->
-        <el-form-item label="114514" prop="stuId">
-            <el-input id="stuId-input" v-model="ruleForm.stuId"></el-input>
-        </el-form-item>
-        <!-- 学院 -->
-        <el-form-item label="红茶学院" prop="school">
-            <el-input id="school-input" v-model="ruleForm.school"></el-input>
-        </el-form-item>
-        <!-- 专业 -->
-        <el-form-item label="红茶烘培" prop="major">
-            <el-input id="major-input" v-model="ruleForm.major"></el-input>
-        </el-form-item>
-        <!-- 班级 -->
-        <el-form-item label="11红茶4" prop="class">
-            <el-input id="class-input" v-model="ruleForm.class"></el-input>
-        </el-form-item>
-        <!-- 辅导员 -->
-        <el-form-item label="先辈1" prop="teacher1">
-            <el-input id="teacher1-input" v-model="ruleForm.teacher1"></el-input>
-        </el-form-item>
-        <!-- 副书记 -->
-        <el-form-item label="先辈2" prop="teacher2">
-            <el-input id="teacher2-input" v-model="ruleForm.teacher2"></el-input>
-        </el-form-item>
-        <!-- 性别 -->
-        <el-form-item label="G/L" prop="gender">
-            <el-input id="gender-input" v-model="ruleForm.gender"></el-input>
-        </el-form-item>
-        <!-- 电话 -->
-        <el-form-item label="哼哼哼号码" prop="phone">
-            <el-input id="phone-input" v-model="ruleForm.phone"></el-input>
-        </el-form-item>
-        <!-- 身份证 -->
-        <el-form-item label="homo号" prop="idCard">
-            <el-input id="idCard-input" v-model="ruleForm.idCard"></el-input>
-        </el-form-item>
-        <!-- 原因 -->
-        <el-form-item label="雷普原因" prop="reason">
-            <el-input id="reason-input" v-model="ruleForm.reason"></el-input>
-        </el-form-item>
+    <div id="app">
+        <h3 align="center">下北泽大学通行系统</h3>
+        <br><br>
+        <el-form :model="ruleForm" :rules="rules" class="demo-ruleForm" label-width="100px" ref="ruleForm" status-icon>
+            <!-- 姓名 -->
+            <el-form-item label="远野" prop="name">
+                <el-input id="name-input" v-model="ruleForm.name"></el-input>
+            </el-form-item>
+            <!-- 学号 -->
+            <el-form-item label="114514" prop="stuId">
+                <el-input id="stuId-input" v-model="ruleForm.stuId"></el-input>
+            </el-form-item>
+            <!-- 学院 -->
+            <el-form-item label="红茶学院" prop="school">
+                <el-input id="school-input" v-model="ruleForm.school"></el-input>
+            </el-form-item>
+            <!-- 专业 -->
+            <el-form-item label="红茶烘培" prop="major">
+                <el-input id="major-input" v-model="ruleForm.major"></el-input>
+            </el-form-item>
+            <!-- 班级 -->
+            <el-form-item label="11红茶4" prop="class">
+                <el-input id="class-input" v-model="ruleForm.class"></el-input>
+            </el-form-item>
+            <!-- 辅导员 -->
+            <el-form-item label="先辈1" prop="teacher1">
+                <el-input id="teacher1-input" v-model="ruleForm.teacher1"></el-input>
+            </el-form-item>
+            <!-- 副书记 -->
+            <el-form-item label="先辈2" prop="teacher2">
+                <el-input id="teacher2-input" v-model="ruleForm.teacher2"></el-input>
+            </el-form-item>
+            <!-- 性别 -->
+            <el-form-item label="G/L" prop="gender">
+                <el-input id="gender-input" v-model="ruleForm.gender"></el-input>
+            </el-form-item>
+            <!-- 电话 -->
+            <el-form-item label="哼哼哼号码" prop="phone">
+                <el-input id="phone-input" v-model="ruleForm.phone"></el-input>
+            </el-form-item>
+            <!-- 身份证 -->
+            <el-form-item label="homo号" prop="idCard">
+                <el-input id="idCard-input" v-model="ruleForm.idCard"></el-input>
+            </el-form-item>
+            <!-- 原因 -->
+            <el-form-item label="雷普原因" prop="reason">
+                <el-input id="reason-input" v-model="ruleForm.reason"></el-input>
+            </el-form-item>
 
-        <el-form-item>
-            <div align="center">
-                <el-button @click="submitForm('ruleForm')" type="primary">雷普</el-button>
-                <el-button @click="resetForm('ruleForm')">重置</el-button>
-            </div>
-        </el-form-item>
-    </el-form>
-    <br> <br>
+            <el-form-item>
+                <div align="center">
+                    <el-button @click="submitForm('ruleForm')" type="primary">雷普</el-button>
+                    <el-button @click="resetForm('ruleForm')">重置</el-button>
+                </div>
+            </el-form-item>
+        </el-form>
+        <br> <br>
 
-    <!-- 跳转页面按钮 -->
-    <div id="btns_div" style="display:none">
-        <el-row>
-            <div align="center">
-                <a href="page/outcode.html" target="_blank">
-                    <el-button type="primary">出
-                    </el-button>
-                </a>
-                <a href="page/incode.html" target="_blank">
-                    <el-button type="success">进
-                    </el-button>
-                </a>
-            </div>
+        <!-- 跳转页面按钮 -->
+        <div id="btns_div" style="display:none">
+            <el-row>
+                <div align="center">
+                    <a href="page/outcode.html" target="_blank">
+                        <el-button type="primary">出
+                        </el-button>
+                    </a>
+                    <a href="page/incode.html" target="_blank">
+                        <el-button type="success">进
+                        </el-button>
+                    </a>
+                </div>
 
-        </el-row>
-        <br>
-        <el-row>
-            <div align="center">
-                <a href="page/outpage.html">
-                    <el-button type="primary">出条</el-button>
-                </a>
-                <el-button type="success">进条(开发中)</el-button>
-            </div>
-        </el-row>
-        s
+            </el-row>
+            <br>
+            <el-row>
+                <div align="center">
+                    <a href="page/outpage.html">
+                        <el-button type="primary">出条</el-button>
+                    </a>
+                    <el-button type="success">进条(开发中)</el-button>
+                </div>
+            </el-row>
+            s
+        </div>
+
+
     </div>
-
-
-</div>
 </body>
 
 <script src="js/vue.js"></script>
@@ -130,7 +130,7 @@
     }
 
     function setCookie(c_name, c_stuID, c_school, c_major, c_class, c_teacher1, c_teacher2,
-                       c_gender, c_idCard, c_phone, c_reason, exdays) {
+        c_gender, c_idCard, c_phone, c_reason, exdays) {
         let exdate = new Date();//获取时间
 
         exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000 * exdays);//保存的天数
@@ -272,34 +272,34 @@
                 },
                 rules: {
                     name: [
-                        {validator: checkName, trigger: 'blur'}
+                        { validator: checkName, trigger: 'blur' }
                     ],
                     stuId: [
-                        {validator: checkStuId, trigger: 'blur'}
+                        { validator: checkStuId, trigger: 'blur' }
                     ],
                     school: [
-                        {validator: checkSchool, trigger: 'blur'}
+                        { validator: checkSchool, trigger: 'blur' }
                     ],
                     major: [
-                        {validator: checkMajor, trigger: 'blur'}
+                        { validator: checkMajor, trigger: 'blur' }
                     ],
                     class: [
-                        {validator: checkClass, trigger: 'blur'}
+                        { validator: checkClass, trigger: 'blur' }
                     ],
                     gender: [
-                        {validator: checkGender, trigger: 'blur'}
+                        { validator: checkGender, trigger: 'blur' }
                     ],
                     teacher1: [
-                        {validator: checkTeacher1, trigger: 'blur'}
+                        { validator: checkTeacher1, trigger: 'blur' }
                     ],
                     phone: [
-                        {validator: checkPhone, trigger: 'blur'}
+                        { validator: checkPhone, trigger: 'blur' }
                     ],
                     idCard: [
-                        {validator: checkIdCard, trigger: 'blur'}
+                        { validator: checkIdCard, trigger: 'blur' }
                     ],
                     reason: [
-                        {validator: checkReason, trigger: 'blur'}
+                        { validator: checkReason, trigger: 'blur' }
                     ]
                 }
             };
@@ -309,14 +309,11 @@
             submitForm(formName) {
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        //写入cookie
                         setCookie(this.ruleForm.name, this.ruleForm.stuId, this.ruleForm.school,
                             this.ruleForm.major, this.ruleForm.class, this.ruleForm.teacher1, this.ruleForm.teacher2,
                             this.ruleForm.gender, this.ruleForm.idCard, this.ruleForm.phone, this.ruleForm.reason, 30);
-                        // setCookie(c_name, c_stuID, c_school, c_major, c_class, c_teacher1,
-                        //     c_gender, c_idCard, c_phone, c_reason, exdays)
 
-                        alert('雷普成功');
+                        alert('不要核酸要吃饭，不要封控要自由！');
                         document.getElementById("btns_div").style.display = "block";
                     } else {
                         console.log('error submit!!');
